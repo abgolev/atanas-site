@@ -6,7 +6,7 @@ Code for share button snagged from: https://stackoverflow.com/questions/16463030
 Code for fadeout effect snagged from: https://stackoverflow.com/questions/29017379/how-to-make-fadeout-effect-with-pure-javascript
 -->
 <HTML>
-<TITLE>Disconnections</TITLE>
+<TITLE>Dosconnections</TITLE>
 <HEAD>
 <STYLE> 
 
@@ -259,7 +259,7 @@ var purpleEmoji = String.fromCharCode(0xD83D, 0xDFEA);
 
 // CHANGE ALL THIS meow
 // When done with changes, Commit Changes on top right
-// Give it like 2 minutes and should be viewable on https://abgolev.github.io/atanas-site/disconnections.html
+// Give it like 2 minutes and should be viewable on https://abgolev.github.io/atanas-site/dosconnections.html
 	
 var puzzleNumber = 0; // Needs to be incremented per week or data is not cleared from previous week
 
@@ -395,7 +395,7 @@ function load() {
 		//setCookie("failed", "false");
 		localStorage.setItem("failed", "false");
 		//setCookie("myTestVar", "bigmeow");
-		//let idName = "disconnections" + puzzleNumber;
+		//let idName = "dosconnections" + puzzleNumber;
 		//setCookie("id", currIdName);
 		//setCookie("name", currIdName);
 		//console.log("rowsCleared cookieVal:" + getCookieVal("rowsCleared"));
@@ -1242,7 +1242,7 @@ function viewResults(){
 	let congratsWord = "Shite";
 	if(rowsCleared == 4 && (failed == false || failed == "false"))
 		congratsWord = congratsWords[guessesMade]
-	let resultsText = "<font size=\"100px\"><b>" + congratsWord + "</b></font>" + "<br><br>" + "Disconnections #" + puzzleNumber + "<br><br>" + colorTable + "<br>";
+	let resultsText = "<font size=\"100px\"><b>" + congratsWord + "</b></font>" + "<br><br>" + "Dosconnections #" + puzzleNumber + "<br><br>" + colorTable + "<br>";
 	//console.log("resultsText" + resultsText); 
 	resultsBox.innerHTML = resultsText;
 	resultsBox.style.fontSize = "39px";
@@ -1292,7 +1292,7 @@ function enableShareButton(){
 		//console.log("hellooooo");
   		if (navigator.share) {
     			navigator.share({
-        		text: "Disconnections\nPuzzle #" + puzzleNumber +"\n"+colors
+        		text: "Dosconnections\nPuzzle #" + puzzleNumber +"\n"+colors
      		})
       		.then(() => console.log('Successful share'))
       		.catch((error) => console.log('Error sharing', error));
@@ -1304,8 +1304,8 @@ function enableShareButton(){
 		//console.log("hellooooo");
   		if (navigator.share) {
     			navigator.share({
-        		text: "Disconnections\nPuzzle #" + puzzleNumber,
-			url: "https://abgolev.github.io/atanas-site/disconnections.html",
+        		text: "Dosconnections\nPuzzle #" + puzzleNumber,
+			url: "https://abgolev.github.io/atanas-site/dosconnections.html",
      		})
       		.then(() => console.log('Successful share'))
       		.catch((error) => console.log('Error sharing', error));
@@ -1333,7 +1333,7 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
 </SCRIPT>
 	
 </HEAD>
-<h1>DISCONNECTIONS</h1>
+<h1>DOSCONNECTIONS</h1>
 <BODY ONLOAD="load()">
 
 <div>
