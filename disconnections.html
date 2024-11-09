@@ -772,7 +772,13 @@ function makeBigRowForRowAndColor(myRow, myColor){
 	}
 	bigRow.innerHTML = bigRowText;
 	bigRow.style.wordWrap = "break-word";
-	bigRow.style.lineHeight = "50px";
+	//bigRow.style.lineHeight = "50px";
+	for(i = 0; i < smallAnswerMatrix.length; i++){
+		if(colorRow == smallWordMatrix[i])
+			bigRow.style.lineHeight = "25px";
+		else
+			bigRow.style.lineHeight = "50px";
+	}
 	bigRow.style.fontWeight = "400";
 }
 
