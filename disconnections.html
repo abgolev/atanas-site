@@ -731,11 +731,13 @@ async function makeBigRow(row, colorRow){
 		bigRow.style.width = "427.5%"
 	bigRow.style.wordWrap = "break-word";
 	//bigRow.style.lineHeight = "50px";
-	for(i = 0; i < smallAnswerMatrix.length; i++){
-		if(colorRow == smallAnswerMatrix[i])
-			bigRow.style.lineHeight = "25px";
-		else
+	for(z = 0; z < smallAnswerMatrix.length; z++){
+		if(colorRow == smallAnswerMatrix[z]){
+			bigRow.style.lineHeight = "36px";
+		}
+		else{
 			bigRow.style.lineHeight = "50px";
+		}
 	}
 	bigRow.style.fontWeight = "400";
 }
@@ -773,11 +775,14 @@ function makeBigRowForRowAndColor(myRow, myColor){
 	bigRow.innerHTML = bigRowText;
 	bigRow.style.wordWrap = "break-word";
 	//bigRow.style.lineHeight = "50px";
-	for(i = 0; i < smallAnswerMatrix.length; i++){
-		if(myColor == smallAnswerMatrix[i])
-			bigRow.style.lineHeight = "25px";
-		else
+	for(z = 0; z < smallAnswerMatrix.length; z++){
+		if(myColor == smallAnswerMatrix[z]){
+			bigRow.style.lineHeight = "36px";
+			console.log("myColor:" + myColor);
+		}
+		else{
 			bigRow.style.lineHeight = "50px";
+		}
 	}
 	bigRow.style.fontWeight = "400";
 }
