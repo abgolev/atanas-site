@@ -732,7 +732,7 @@ async function makeBigRow(row, colorRow){
 	bigRow.style.wordWrap = "break-word";
 	//bigRow.style.lineHeight = "50px";
 	for(i = 0; i < smallAnswerMatrix.length; i++){
-		if(colorRow == smallWordMatrix[i])
+		if(colorRow == [smallAnswerMatrixi])
 			bigRow.style.lineHeight = "25px";
 		else
 			bigRow.style.lineHeight = "50px";
@@ -774,7 +774,7 @@ function makeBigRowForRowAndColor(myRow, myColor){
 	bigRow.style.wordWrap = "break-word";
 	//bigRow.style.lineHeight = "50px";
 	for(i = 0; i < smallAnswerMatrix.length; i++){
-		if(colorRow == smallWordMatrix[i])
+		if(colorRow == smallAnswerMatrix[i])
 			bigRow.style.lineHeight = "25px";
 		else
 			bigRow.style.lineHeight = "50px";
