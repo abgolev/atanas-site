@@ -341,7 +341,7 @@ function setInitCookie(name, value, days) {
 
 function setCookie(key, val){
 	let myString = key + "=" + val;
-	console.log("mystring: " + myString);
+	//console.log("mystring: " + myString);
 	document.cookie = myString;
 	//document.cookie="favorite_word=finagle";
 }
@@ -349,9 +349,9 @@ function setCookie(key, val){
 
 function showCookieValue() {
 	const cookieValue = document.cookie.split("; ").find((row) => row.startsWith("favorite_food="))?.split("=")[1];
-	console.log("cookieValue: " + cookieValue);
+	//console.log("cookieValue: " + cookieValue);
 	const cookieValue2 = document.cookie.split("; ").find((row) => row.startsWith("favorite_salad="))?.split("=")[1];
-	console.log("cookieValue2: " + cookieValue2);
+	//console.log("cookieValue2: " + cookieValue2);
 }
 
 function getCookie(name) {
@@ -361,20 +361,20 @@ function getCookie(name) {
         var c = ca[i];
         while (c.charAt(0)==' ') 
 		c = c.substring(1,c.length);
-	console.log("c: " + c)
+	//console.log("c: " + c)
     }
     return null;
 }
 
 function getCookieName() {
 	let cookieName = document.cookie.split("; ").find((row) => row.startsWith("cookieName="))?.split("=")[1];
-	console.log("cookieValueName: " + cookieName);
+	//console.log("cookieValueName: " + cookieName);
 	return cookieName;
 }
 
 function getCookieVal(key) {
 	let cookieName = document.cookie.split("; ").find((row) => row.startsWith(key + "="))?.split("=")[1];
-	console.log(key + " cookieValueName: " + cookieName);
+	//console.log(key + " cookieValueName: " + cookieName);
 	return cookieName;
 }
 		
@@ -523,9 +523,9 @@ function load() {
 		document.getElementById("shareButton").innerHTML="&nbsp&nbsp&nbsp&nbspShare Your Results&nbsp&nbsp&nbsp&nbsp";
 		document.getElementById("shareButton").style.backgroundColor = "#000000";
 		document.getElementById("shareButton").style.color = "#ffffff";
-		document.getElementById("shareButton2").innerHTML="&nbsp&nbsp&nbsp&nbspShare Link&nbsp&nbsp&nbsp&nbsp";
-		document.getElementById("shareButton2").style.backgroundColor = "#606060";
-		document.getElementById("shareButton2").style.color = "#ffffff";
+		//document.getElementById("shareButton2").innerHTML="&nbsp&nbsp&nbsp&nbspShare Link&nbsp&nbsp&nbsp&nbsp";
+		//document.getElementById("shareButton2").style.backgroundColor = "#606060";
+		//document.getElementById("shareButton2").style.color = "#ffffff";
 		document.getElementById("Shuffle").remove();
 		document.getElementById("Submit").remove();
 		document.getElementById("ClearAll").innerHTML = "&nbsp&nbsp&nbsp&nbspView Results&nbsp&nbsp&nbsp&nbsp";
@@ -751,7 +751,7 @@ async function makeBigRow(row, colorRow){
 }
 
 function makeBigRowForRowAndColor(myRow, myColor){
-	console.log("made it in");
+	//console.log("made it in");
 	let bigRow = document.getElementById("word"+myRow+"0");
 	for(j = 1; j < 4; j++){
 		document.getElementById("word" + myRow + j).remove();
@@ -786,7 +786,7 @@ function makeBigRowForRowAndColor(myRow, myColor){
 	for(z = 0; z < smallAnswerMatrix.length; z++){
 		if(myColor == smallAnswerMatrix[z]){
 			bigRow.style.lineHeight = "42px";
-			console.log("myColor:" + myColor);
+			//console.log("myColor:" + myColor);
 		}
 		//else{
 		//	bigRow.style.lineHeight = "50px";
@@ -805,7 +805,7 @@ function disableClicksTopRow(){
 function changeColor(colorRow){
 	for(i = 0; i < 4; i++){
 		for(j = 0; j < 4; j++){
-			console.log("made it woots");
+			//console.log("made it woots");
 			let myWord = "";
 			if(selectionMatrix[i][j]){
 				//console.log("made it woots");
@@ -1217,7 +1217,7 @@ async function switchWords(correctColorRow){
 
 async function endGame(winning){
 	//console.log("guessesMade: " + guessesMade);
-	console.log("cookieValue: " + showCookieValue());
+	//console.log("cookieValue: " + showCookieValue());
 	gameOver = true;
 	//setCookie("gameOver", "" + gameOver);
 	localStorage.setItem("gameOver", "" + gameOver);
@@ -1242,9 +1242,9 @@ async function endGame(winning){
 	document.getElementById("shareButton").innerHTML="&nbsp&nbsp&nbsp&nbspShare Your Results&nbsp&nbsp&nbsp&nbsp";
 	document.getElementById("shareButton").style.backgroundColor = "#000000";
 	document.getElementById("shareButton").style.color = "#ffffff";
-	document.getElementById("shareButton2").innerHTML="&nbsp&nbsp&nbsp&nbspShare Link&nbsp&nbsp&nbsp&nbsp";
-	document.getElementById("shareButton2").style.backgroundColor = "#606060";
-	document.getElementById("shareButton2").style.color = "#ffffff";
+	//document.getElementById("shareButton2").innerHTML="&nbsp&nbsp&nbsp&nbspShare Link&nbsp&nbsp&nbsp&nbsp";
+	//document.getElementById("shareButton2").style.backgroundColor = "#606060";
+	//document.getElementById("shareButton2").style.color = "#ffffff";
 
 	let congrats = congratsWords[guessesMade];
 	if(rowsCleared != 4 || failed == true)
@@ -1314,7 +1314,7 @@ function getColorTable(forSending){
 
 function enableShareButton(){
 	const shareButton = document.getElementById("shareButton"); 
-	const shareButton2 = document.getElementById("shareButton2"); 
+	//const shareButton2 = document.getElementById("shareButton2"); 
 	var colors = getColorTable(true);
 	shareButton.addEventListener("click", (e) => { 
 		//console.log("hellooooo");
@@ -1328,19 +1328,20 @@ function enableShareButton(){
     		console.log('Share not supported on this browser, do it the old way.');
   		}
 	});
-	shareButton2.addEventListener("click", (e) => { 
+	
+	//shareButton2.addEventListener("click", (e) => { 
 		//console.log("hellooooo");
-  		if (navigator.share) {
-    			navigator.share({
-        		text: "Disconnections\nPuzzle #" + puzzleNumber,
-			url: "https://abgolev.github.io/atanas-site/disconnections.html",
-     		})
-      		.then(() => console.log('Successful share'))
-      		.catch((error) => console.log('Error sharing', error));
-  		} else {
-    		console.log('Share not supported on this browser, do it the old way.');
-  		}
-	});
+  	//	if (navigator.share) {
+    	//		navigator.share({
+        //		text: "Disconnections\nPuzzle #" + puzzleNumber,
+	//		url: "https://abgolev.github.io/atanas-site/disconnections.html",
+     	//	})
+      	//	.then(() => console.log('Successful share'))
+      	//	.catch((error) => console.log('Error sharing', error));
+  	//	} else {
+    	//	console.log('Share not supported on this browser, do it the old way.');
+  	//	}
+	//});
 }
 
 function sleep(ms){
@@ -1444,9 +1445,6 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
 		<br>
 		<div id="wrapper">
 			<div class="button"><button class="button button" id="shareButton">Share Your Results</button></div>
-		</div>
-		<div id="wrapper">
-			<div class="button"><button class="button button" id="shareButton2">Share Link</button></div>
 		</div>
 		<br>
 		<br>
