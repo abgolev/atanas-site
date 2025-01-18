@@ -320,58 +320,6 @@ var congratsWords = [
 	"Aight",
 	"Clutch"
 ]
-
-function setInitCookie(name, value, days) {
-	//have to figure out how to set date in here
-	var expires = new Date("August 17, 2024 20:35:00");
-	//var date = new Date();
-        //date.setTime(date.getTime() + (days*24*60*60*1000));
-        //var expires = "; expires=" + date.toUTCString();
-	//console.log("expires: " + expires);
-	expires = "; expires=" + expires.toUTCString();
-	//console.log("Expires after conversion: " + expires);
-	document.cookie = name + "=" + (value || "")  + expires + "; SameSite=None; path=/";
-	//document.cookie = "favorite_food=tripe; SameSite=None;";
-}
-
-function setCookie(key, val){
-	let myString = key + "=" + val;
-	//console.log("mystring: " + myString);
-	document.cookie = myString;
-	//document.cookie="favorite_word=finagle";
-}
-
-
-function showCookieValue() {
-	const cookieValue = document.cookie.split("; ").find((row) => row.startsWith("favorite_food="))?.split("=")[1];
-	//console.log("cookieValue: " + cookieValue);
-	const cookieValue2 = document.cookie.split("; ").find((row) => row.startsWith("favorite_salad="))?.split("=")[1];
-	//console.log("cookieValue2: " + cookieValue2);
-}
-
-function getCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') 
-		c = c.substring(1,c.length);
-	//console.log("c: " + c)
-    }
-    return null;
-}
-
-function getCookieName() {
-	let cookieName = document.cookie.split("; ").find((row) => row.startsWith("cookieName="))?.split("=")[1];
-	//console.log("cookieValueName: " + cookieName);
-	return cookieName;
-}
-
-function getCookieVal(key) {
-	let cookieName = document.cookie.split("; ").find((row) => row.startsWith(key + "="))?.split("=")[1];
-	//console.log(key + " cookieValueName: " + cookieName);
-	return cookieName;
-}
 		
 function load() {
 	let initCookieName = "disCookie";
@@ -379,75 +327,28 @@ function load() {
 	let oldIdName = getCookieVal("id");
 	let oldLocalName = localStorage.getItem("name")
 	let newLocalName = "disStorageAton" + puzzleNumber;
-	
-	//console.log("currCookie: " + currIdName);
-	//console.log("oldcookie: " + oldIdName)
 
-	//set new cookie for each new puzzle
+	//set new localStorage for each new puzzle
 	if(oldLocalName != newLocalName){
-		//console.log("setting new cookie");
-		//setInitCookie("cookieName", initCookieName, 7);
-		//console.log("getting new cookie name: " + getCookieName());
-		//setCookie("guessesLeft", "4");
 		localStorage.setItem("name", newLocalName);
 		localStorage.setItem("guessesLeft", "4");
-		//setCookie("rowsCleared", "0");
 		localStorage.setItem("rowsCleared", "0");
-		//setCookie("guessesMade", "0");
 		localStorage.setItem("guessesMade", "0");
-		//setCookie("gameOver", "false");
 		localStorage.setItem("gameOver", "false");
-		//setCookie("failed", "false");
 		localStorage.setItem("failed", "false");
-		//setCookie("myTestVar", "bigmeow");
-		//let idName = "disconnections" + puzzleNumber;
-		//setCookie("id", currIdName);
-		//setCookie("name", currIdName);
-		//console.log("rowsCleared cookieVal:" + getCookieVal("rowsCleared"));
-		//setCookie("guessedColorList", JSON.stringify(guessedColorList));
 		localStorage.setItem("guessedColorList", JSON.stringify(guessedColorList));
-		//setCookie("guessedWordList", JSON.stringify(guessedWordList));
 		localStorage.setItem("guessedWordList", JSON.stringify(guessedWordList));
-		//setCookie("guessList", JSON.stringify(guessList));
 		localStorage.setItem("guessList", JSON.stringify(guessList));
-		//let newColorList = getCookieVal("guessedColorList");
-		//let newWordList = getCookieVal("guessedWordList");
 	}
 	else{
-		//console.log("myTestVar: " + myTestVar);
-		//myTestVar = getCookieVal("myTestVar")
-		//console.log("myTestVar: " + myTestVar)
-		//guessesMade = getCookieVal("guessesMade");
 		guessesMade = localStorage.getItem("guessesMade");
-		//guessesLeft = getCookieVal("guessesLeft");
 		guessesLeft = localStorage.getItem("guessesLeft");
-		//rowsCleared = getCookieVal("rowsCleared");
 		rowsCleared = localStorage.getItem("rowsCleared");
-		//gameOver = getCookieVal("gameOver");
 		gameOver = localStorage.getItem("gameOver");
-		//failed = getCookieVal("failed");
 		failed = localStorage.getItem("failed");
-		//guessedColorList = JSON.parse(getCookieVal("guessedColorList"));
 		guessedColorList = JSON.parse(localStorage.getItem("guessedColorList"));
-		//guessedWordList = JSON.parse(getCookieVal("guessedWordList"));
 		guessedWordList = JSON.parse(localStorage.getItem("guessedWordList"));
-		//guessList = JSON.parse(getCookieVal("guessList"));
 		guessList = JSON.parse(localStorage.getItem("guessList"));
-		//console.log("guessesLeft cookie: " + getCookieVal("guessesLeft"));
-		//console.log("rowscleared: " + getCookieVal("rowsCleared"));
-		//console.log("guesssesMade: " + getCookieVal("guessesMade"));
-		//console.log("gameOver: " + getCookieVal("gameOver"));
-		//console.log("failed: " + getCookieVal("failed"));
-		//console.log("myTestVar: " + getCookieVal("myTestVar"));
-		//console.log(getCookieVal("guessedColorList"));
-		//console.log(getCookieVal("guessedWordList"));
-		//guessesLeft = getCookieVal("guessesLeft");
-		//let newColorList = getCookieVal("guessedColorList");
-		//let newWordList = getCookieVal("guessedWordList");
-		//console.log("colorList" + newColorList);
-		//console.log("wordList" + newWordList);
-		//console.log("colorList parsed: " + JSON.parse(newColorList));
-		//console.log("wordList parsed: " + JSON.parse(newWordList));
 		if(guessesLeft!=4){
 			//console.log("guessesLeftNow: " + guessesLeft);
 			for(i = 3; i >= guessesLeft; i--){
@@ -455,8 +356,6 @@ function load() {
 			}
 		}
 	}
-	//setCookie("favorite_salad", "shopska");
-	//console.log(getCookie(initCookieName));
 	showCookieValue();
 
 	//enables clicks and sets words; if is clear slate while else is in a cookie state with a row solved
@@ -483,7 +382,6 @@ function load() {
 		for(i = 0; i < size; i++){
 			//console.log("makeBigRowTime");
 			makeBigRowForRowAndColor(i, guessedColorList[i])
-			//makeBigRow(i, guessedColorList[i]);
 			//console.log("size: " + size);
 			//console.log("i: " + i);
 		}
@@ -518,9 +416,6 @@ function load() {
 		document.getElementById("shareButton").innerHTML="&nbsp&nbsp&nbsp&nbspShare Your Results&nbsp&nbsp&nbsp&nbsp";
 		document.getElementById("shareButton").style.backgroundColor = "#000000";
 		document.getElementById("shareButton").style.color = "#ffffff";
-		//document.getElementById("shareButton2").innerHTML="&nbsp&nbsp&nbsp&nbspShare Link&nbsp&nbsp&nbsp&nbsp";
-		//document.getElementById("shareButton2").style.backgroundColor = "#606060";
-		//document.getElementById("shareButton2").style.color = "#ffffff";
 		document.getElementById("Shuffle").remove();
 		document.getElementById("Submit").remove();
 		document.getElementById("ClearAll").innerHTML = "&nbsp&nbsp&nbsp&nbspView Results&nbsp&nbsp&nbsp&nbsp";
@@ -1237,9 +1132,6 @@ async function endGame(winning){
 	document.getElementById("shareButton").innerHTML="&nbsp&nbsp&nbsp&nbspShare Your Results&nbsp&nbsp&nbsp&nbsp";
 	document.getElementById("shareButton").style.backgroundColor = "#000000";
 	document.getElementById("shareButton").style.color = "#ffffff";
-	//document.getElementById("shareButton2").innerHTML="&nbsp&nbsp&nbsp&nbspShare Link&nbsp&nbsp&nbsp&nbsp";
-	//document.getElementById("shareButton2").style.backgroundColor = "#606060";
-	//document.getElementById("shareButton2").style.color = "#ffffff";
 
 	let congrats = congratsWords[guessesMade];
 	if(rowsCleared != 4 || failed == true)
@@ -1309,7 +1201,6 @@ function getColorTable(forSending){
 
 function enableShareButton(){
 	const shareButton = document.getElementById("shareButton"); 
-	//const shareButton2 = document.getElementById("shareButton2"); 
 	var colors = getColorTable(true);
 	shareButton.addEventListener("click", (e) => { 
 		//console.log("hellooooo");
@@ -1323,20 +1214,6 @@ function enableShareButton(){
     		console.log('Share not supported on this browser, do it the old way.');
   		}
 	});
-	
-	//shareButton2.addEventListener("click", (e) => { 
-		//console.log("hellooooo");
-  	//	if (navigator.share) {
-    	//		navigator.share({
-        //		text: "Disconnections\nPuzzle #" + puzzleNumber,
-	//		url: "https://abgolev.github.io/atanas-site/disconnections.html",
-     	//	})
-      	//	.then(() => console.log('Successful share'))
-      	//	.catch((error) => console.log('Error sharing', error));
-  	//	} else {
-    	//	console.log('Share not supported on this browser, do it the old way.');
-  	//	}
-	//});
 }
 
 function sleep(ms){
