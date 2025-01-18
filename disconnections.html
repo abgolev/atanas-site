@@ -324,7 +324,6 @@ var congratsWords = [
 function load() {
 	let initCookieName = "disCookie";
 	let currIdName = "atonCookie" + puzzleNumber;
-	let oldIdName = getCookieVal("id");
 	let oldLocalName = localStorage.getItem("name")
 	let newLocalName = "disStorageAton" + puzzleNumber;
 
@@ -356,7 +355,6 @@ function load() {
 			}
 		}
 	}
-	showCookieValue();
 
 	//enables clicks and sets words; if is clear slate while else is in a cookie state with a row solved
 	if(rowsCleared == 0 && gameOver != "true"){
@@ -1107,7 +1105,6 @@ async function switchWords(correctColorRow){
 
 async function endGame(winning){
 	//console.log("guessesMade: " + guessesMade);
-	//console.log("cookieValue: " + showCookieValue());
 	gameOver = true;
 	//setCookie("gameOver", "" + gameOver);
 	localStorage.setItem("gameOver", "" + gameOver);
