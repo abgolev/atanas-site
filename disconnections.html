@@ -503,10 +503,8 @@ async function countSuccesses() {
 	}
 	//console.log("colorList: " + colorList)
 	guessList.push(colorList);
-	//setCookie("guessList", JSON.stringify(guessList));
 	localStorage.setItem("guessList", JSON.stringify(guessList));
 	guessedWordList.push(guessedFour);
-	//setCookie("guessedWordList", JSON.stringify(guessedWordList));
 	localStorage.setItem("guessedWordList", JSON.stringify(guessedWordList));
 	//console.log("guessed word list: " + guessedWordList);
 	//console.log("successes: " + successCountPerAssociation);
@@ -522,7 +520,6 @@ async function countSuccesses() {
 	}
 	if(colorCorrect != -1)
 		guessedColorList.push(colorCorrect);
-	//setCookie("guessedColorList", "" + JSON.stringify(guessedColorList));
 	localStorage.setItem("guessedColorList", "" + JSON.stringify(guessedColorList));
 	//console.log("maxSuccesses: " + maxSuccesses);
 
@@ -534,7 +531,6 @@ async function countSuccesses() {
 			document.getElementById("ClearAll").removeEventListener("click", clearAll);
 		}
 		rowsCleared++;
-		//setCookie("rowsCleared", "" + rowsCleared);
 		localStorage.setItem("rowsCleared", "" + rowsCleared);
 		correctGuess = true;
 		changeColor(colorCorrect);
@@ -745,7 +741,6 @@ async function submitWords(){
 		return;
 	}
 	guessesMade++;
-	//setCookie("guessesMade", "" + guessesMade);
 	localStorage.setItem("guessesMade", "" + guessesMade);
 	document.getElementById("Submit").removeEventListener("click", submitWords);
 	document.getElementById("Submit").style.backgroundColor = "#FFFFFF";
@@ -764,7 +759,6 @@ async function submitWords(){
 	if(!correctGuess){
 		//console.log("hello");
 		guessesLeft--;
-		setCookie("guessesLeft", "" + guessesLeft);
 		localStorage.setItem("guessesLeft", "" + guessesLeft);
 		document.getElementById("mistake"+guessesLeft).src = "images/empty.jpg";
 		if(guessesLeft==0){
@@ -844,7 +838,6 @@ async function solveRestOfPuzzle(){
 		
 			//console.log("We gonna submit some words");
 			failed = true;
-			//setCookie("failed", "true");
 			localStorage.setItem("failed", "true");
 			rowsCleared++;
 			//console.log("BEFORE AWAIT");
@@ -1106,7 +1099,6 @@ async function switchWords(correctColorRow){
 async function endGame(winning){
 	//console.log("guessesMade: " + guessesMade);
 	gameOver = true;
-	//setCookie("gameOver", "" + gameOver);
 	localStorage.setItem("gameOver", "" + gameOver);
 	if(winning == false){
 		for(i = rowsCleared ; i < 4; i++){	
@@ -1120,10 +1112,8 @@ async function endGame(winning){
 			document.getElementById("word"+i+"0").style.width = "100%"
 		}
 	}
-	//setCookie("guessedColorList", "" + JSON.stringify(guessedColorList));
 	localStorage.setItem("guessedColorList", "" + JSON.stringify(guessedColorList));
 	rowsCleared = 4;
-	//setCookie("rowsCleared", ""+rowsCleared);
 	localStorage.setItem("rowsCleared", ""+rowsCleared);
 	enableShareButton();
 	document.getElementById("shareButton").innerHTML="&nbsp&nbsp&nbsp&nbspShare Your Results&nbsp&nbsp&nbsp&nbsp";
