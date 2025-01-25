@@ -632,7 +632,8 @@ async function makeBigRow(row, colorRow){
 	for(a = 0; a < reallySmallAnswerMatrix.length; a++){
 		if(colorRow == reallySmallAnswerMatrix[a]){
 			//should be paddingTop probably
-			bigRow.style.lineHeight = "34px";
+			bigRow.style.lineHeight = "0px";
+			bigRow.style.paddingTop = "20px";
 		}
 	}
 	bigRow.style.fontWeight = "400";
