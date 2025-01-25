@@ -632,8 +632,7 @@ async function makeBigRow(row, colorRow){
 	for(a = 0; a < reallySmallAnswerMatrix.length; a++){
 		if(colorRow == reallySmallAnswerMatrix[a]){
 			//should be paddingTop probably
-			bigRow.style.lineHeight = "37px";
-			//bigRow.style.paddingTop = "20px";
+			bigRow.style.lineHeight = "34px";
 		}
 	}
 	bigRow.style.fontWeight = "400";
@@ -677,9 +676,12 @@ function makeBigRowForRowAndColor(myRow, myColor){
 			bigRow.style.lineHeight = "42px";
 			//console.log("myColor:" + myColor);
 		}
-		//else{
-		//	bigRow.style.lineHeight = "50px";
-		//}
+	}
+	for(a = 0; a < reallySmallAnswerMatrix.length; a++){
+		if(colorRow == reallySmallAnswerMatrix[a]){
+			//should be paddingTop probably
+			bigRow.style.lineHeight = "34px";
+		}
 	}
 	bigRow.style.fontWeight = "400";
 }
