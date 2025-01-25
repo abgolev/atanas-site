@@ -283,7 +283,7 @@ var wordMatrix = [
 	"\u{0053}\u{0054}\u{0041}\u{004E}\u{0044}\u{0041}\u{0052}\u{0044}\u{0020}\u{0055}\u{004E}\u{0049}\u{0054}\u{0020}\u{004F}\u{0046}\u{0020}\u{0044}\u{0052}\u{0055}\u{0047}"],
 	[startMatrix[3][2], startMatrix[2][1], startMatrix[0][1], startMatrix[0][2], "#b2c3f0", blueEmoji, 
 	"\u{004C}\u{0045}\u{0054}\u{0054}\u{0045}\u{0052}\u{0020}\u{0048}\u{004F}\u{004D}\u{004F}\u{0050}\u{0048}\u{004F}\u{004E}\u{0045}\u{0053}"],
-	[startMatrix[0][0], startMatrix[3][1], startMatrix[1][2], startMatrix[1][3], "#bb80c4", purpleEmoji, 
+	[startMatrix[0][0], startMatrix[1][2], startMatrix[3][1], startMatrix[1][3], "#bb80c4", purpleEmoji, 
 	"\u{005F}\u{005F}\u{005F}\u{0050}\u{004C}\u{0041}\u{0059}"]
 ]
 
@@ -293,11 +293,14 @@ var smallWordMatrix = [
 ]
 
 var smallWordSizeMatrix = [
-	"30px",
-	"24px"
+	"24px",
+	"30px"
 ]
 
 var smallAnswerMatrix = [
+]
+	
+var reallySmallAnswerMatrix = [
 	"0"
 ]
 	
@@ -625,9 +628,12 @@ async function makeBigRow(row, colorRow){
 			//should be paddingTop probably
 			bigRow.style.lineHeight = "42px";
 		}
-		//else{
-		//	bigRow.style.lineHeight = "50px";
-		//}
+	}
+	for(a = 0; a < reallySmallAnswerMatrix.length; a++){
+		if(colorRow == reallySmallAnswerMatrix[a]){
+			//should be paddingTop probably
+			bigRow.style.lineHeight = "34px";
+		}
 	}
 	bigRow.style.fontWeight = "400";
 }
