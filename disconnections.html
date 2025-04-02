@@ -480,6 +480,7 @@ async function countSuccesses() {
 	let myWord = "";
 	let colorList = [];
 	let guessedFour = [];
+	let continueNowPls = true;
 	for(i = 0; i < 4; i++){
 		for(j = 0; j < 4; j++){
 			if(selectionMatrix[i][j]){
@@ -488,10 +489,20 @@ async function countSuccesses() {
 				for(k = 0; k < 4; k++){
 					for(m = 0; m < 4; m++){
 						if(wordMatrix[k][m] == myWord){
-							successCountPerAssociation[k]++;
-							myColor = k;
-							colorList.push(myColor);
-							guessedFour.push(myWord);
+							for(n = 0; n < guessedFour.size(); n++){
+								if(myWord = guessedFour[n]){
+								   continueNowPls = false;
+								}
+							}
+							if(continueNowPls){
+								successCountPerAssociation[k]++;
+								myColor = k;
+								colorList.push(myColor);
+								guessedFour.push(myWord);
+							}
+							else{
+								continueNowPls = true;
+							}
 						}
 					}
 				}
