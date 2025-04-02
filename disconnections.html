@@ -489,18 +489,23 @@ async function countSuccesses() {
 				for(k = 0; k < 4; k++){
 					for(m = 0; m < 4; m++){
 						if(wordMatrix[k][m] == myWord){
+							console.log("myWord" + myWord);
 							for(n = 0; n < guessedFour.length; n++){
+								console.log("meow0");
 								if(myWord == guessedFour[n]){
-								   continueNowPls = false;
+									console.log("meowwww");
+									continueNowPls = false;
 								}
 							}
 							if(continueNowPls){
+								console.log("meowwww2");
 								successCountPerAssociation[k]++;
 								myColor = k;
 								colorList.push(myColor);
 								guessedFour.push(myWord);
 							}
 							else{
+								console.log("meowwww3");
 								continueNowPls = true;
 							}
 						}
